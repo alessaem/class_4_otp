@@ -31,8 +31,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQubeServer') {
+                def scannerHome = tool 'SonarScanner'
                     bat """
-                        ${tool 'SonarScanner'}\\bin\\sonar-scanner ^
+                        \"${scannerHome}\\bin\\sonar-scanner.bat\"
                         -Dsonar.projectKey=class_5_otp ^
                         -Dsonar.sources=src ^
                         -Dsonar.projectName=Class-5_otp ^
