@@ -29,7 +29,7 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            steps {
+            script {
                 withSonarQubeEnv('SonarQubeServer') {
                 def scannerHome = tool 'SonarScanner'
                     bat """
